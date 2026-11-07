@@ -1306,7 +1306,8 @@ export function calculateGoogleBudgetTokens(maxTokens, reasoningEffort, model) {
         return getGemini3ProBudget();
     }
 
-    if (/gemini-3[.\d]*-flash/.test(model)) {
+    // Gemini 4+ (flash, argon, pro) use thinkingLevel: minimal / low / medium / high
+    if (/gemini-3[.\d]*-flash|gemini-[4-9][.\d]*-(flash|argon|pro)/.test(model)) {
         return getGemini3FlashBudget();
     }
 
